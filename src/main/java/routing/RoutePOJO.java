@@ -8,7 +8,8 @@ import java.util.LinkedHashSet;
 /**
  * Created by nikki on 3/17/2015.
  */
-public class RoutePOJO {
+public class RoutePOJO implements Comparable<RoutePOJO> {
+
     //in kms
     private Float totalLength;
     //object contains the route as series of LatLon points
@@ -46,6 +47,18 @@ public class RoutePOJO {
         this.endPoint = endPoint;
     }
 
+    public LatLon getStartPoint() {
+        return startPoint;
+    }
+
+    public LatLon getEndPoint() {
+        return endPoint;
+    }
+
+    public LinkedHashSet<LatLons> getRoute() {
+        return route;
+    }
+
     @Override
     public String toString() {
         return "RoutePOJO{" +
@@ -54,5 +67,16 @@ public class RoutePOJO {
                 ", startPoint=" + startPoint +
                 ", endPoint=" + endPoint +
                 '}';
+    }
+
+    @Override
+    public int compareTo(RoutePOJO o) {
+        if (endPoint.getLat() > o.getEndPoint().getLat())
+            return 1;
+        else if (endPoint.getLat()== o.getEndPoint().getLat()){
+            return 0;
+        }
+        else
+            return -1;
     }
 }

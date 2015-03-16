@@ -26,11 +26,11 @@ public class Starter {
         //reads the centroids from file and creates hashmap of starting points as key and route data as map
         Map<LatLon,TreeSet<RoutePOJO>> data = new HashMap<LatLon,TreeSet<RoutePOJO>>();
         //same reading and adding
-        String sp = "-37.870868";
-        LatLon start = new LatLon(-Long.parseLong(sp),Long.parseLong("144.768562f"));
+        //String sp = "-37.870868";
+        LatLon start = new LatLon(-37.870868,144.768562);
         TreeSet<RoutePOJO>  targetData = new TreeSet<RoutePOJO>();
         //for every other centroid in data;
-        LatLon target = new LatLon(-Long.parseLong("37.870868"),Long.parseLong("144.768562f")) ;
+        LatLon target = new LatLon(-37.870868,144.768562) ;
         targetData.add(router.getRoute(start, target));
         //at end of parsing through a centroid
         data.put(start,targetData);
